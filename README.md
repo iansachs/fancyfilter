@@ -5,9 +5,9 @@ Dependency-free header and static library implementing the hypothetical **Fancy 
 About
 -----
 
-The **Fancy Filter** is a simple C++ filter. It uses some C++11 features, but has no external dependencies. It is based on [SLIC Superpixels]() which clusters the image (RGBXY) features into `numCells` clusters, with larger values of `numCells`. An example can be seen here:
+The **Fancy Filter** is a simple C++ filter. It uses some C++11 features, but has no external dependencies. It is based on [SLIC Superpixels](http://www.kev-smith.com/papers/SLIC_Superpixels.pdf) which clusters the image (RGBXY) features into `numCells` clusters, with larger values of `numCells`. An example can be seen here:
 
-| ![Input](/docs/images/input-000.jpg?raw=true "Input") | ![1024 cells](/docs/images/result.jpg?raw=true "1024 Cells") |
+| ![Input](/docs/images/input-000.jpg?raw=true "Input") | ![1024 cells](/docs/images/result.png?raw=true "1024 Cells") |
 |:--------------:|:--------------:|
 | Input          |  1024 Cells    |
 
