@@ -47,10 +47,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="doxygen/html/index.html">Documentation</a></li>
-            <li><a href="#about">About</a></li>
+            <li class="active"><a href="#">Challenge</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="doxygen/html/index.html">Doxygen Docs</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -59,9 +58,40 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <h1>iOS Coding Challenge: Fancy Filter</h1>
+        <p class="lead">Build a nice Objective C API for the Fancy Filter C++ library.</p>
       </div>
+
+      <div class="row">
+        <div class="col-md-6"><img src="images/input-000.jpg" class="img-responsive"></img></div>
+        <div class="col-md-6"><img src="images/result.png" class="img-responsive"></img></div>
+      </div>
+
+      <h3>Motivation</h3>
+      <p>
+      At Adobe, there is a huge corpus of C++ code, especially for doing image processing. A common task is to take these C++ libraries and provide Objective C APIs that can be called from iOS apps. The goal is to provide a clean, iOS-style API that makes the filter as intuitive as possible to incorporate.
+      </p>
+
+      <h3>Challenge</h3>
+      <ul>
+        <li><a href="https://github.com/iansachs/fancyfilter/releases/latest">Download the latest Fancyfilter release</a>. You will find a README.md, <code>fancyfilter.hpp</code> header file, and a FAT static library called <code>libff.a</code> which provides symbols for the iphoneos and iphonesimulator platforms.</li>
+        <li><a href="doxygen/html/index.html">Refer to the Fancyfilter documentation</a>.</li>
+      </ul>
+      <h4>Considerations</h4>
+      <p>C++ implementation black box. Because you cannot modify the underlying C++ filter implementation. Release build -O3 so this is maximum performance. no debug symbols. Library doesn't provide any checking for data integrity, etc. You can decide on if you want to include the library as a submodule, or embed directly in your source... or have a build step to download it, etc. Whatever you do, having some type of unit tests or app harness for verifying the correctness of your API will be key. When done, please submit your solution (new fancy filter API, test functions, test app, etc), to </p>
+      <p></p>
+
+      <h3>Deliverable</h3>
+      Zipped Xcode project directory or a link to github repo that contains the Xcode project. It can be either an iOS or MacOS project.
+
+      <h3>Rules</h3>
+      <ul>
+      <li>No Cocoapods</li>
+      <li>No Cocoapods</li>
+      </ul>
+
+      <h3 id="contact">Contact</h3>
+      sachs@adobe.com
 
     </div><!-- /.container -->
 
