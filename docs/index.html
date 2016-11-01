@@ -78,33 +78,29 @@
         <ul>
           <li>What the API should look like</li>
           <li>How to test your API (XCTest, test app, etc)</li>
-          <li>How you would distribute the result: static library/framework, source code, etc.</li>
-          <li>How you want to include the contents of the Fancy Filter repo (submodule, build-time download, etc)</li>
+          <li>How you would distribute the result (static library, framework, source code, etc)</li>
+          <li>How you want to include the contents of the <a href="https://github.com/iansachs/fancyfilter">Fancy Filter</a> repo (submodule, build-time download, etc)</li>
         </ul>
+        This challenge is less about your ability to write extremely complex iOS code, and more about API design, iOS best practices, and your ability to work, at least superficially, with C/C++ code.
       </p>
 
-      <h4>Getting Started</h4>
+      <h3>Getting Started</h3>
       <ul>
         <li>Take a look at the <a href="https://github.com/iansachs/fancyfilter">Fancy Filter</a> repo</li>
-        <li>Clone or <a href="https://github.com/iansachs/fancyfilter/releases/latest">download the latest Fancyfilter release</a>. The important files are: <code>README.md</code>, <code>fancyfilter.hpp</code> header file, and a FAT static library called <code>libff.a</code> which provides symbols for both the iphoneos and iphonesimulator platforms.</li>
+        <li>Clone or download the <a href="https://github.com/iansachs/fancyfilter/releases/latest">latest Fancy Filter release</a>. The important files are: <code>README.md</code>, <code>fancyfilter.hpp</code> header file, and a FAT static library called <code>libff.a</code> which provides symbols for both the iphoneos and iphonesimulator platforms.</li>
         <li><code>README.md</code> should provide all of the necessary information for getting a new Xcode project building with the library.</li>
       </ul>
 
-      <h4>Considerations</h4>
-      <ul>
-        <li>In this case, you can't make any assumptions about the error checking performed by the provided library</li>
-        <li>The provided binary has been compiled in "Release" mode (i.e. without debug symbols and with -O3 optimization)</li>
-      </ul>
 
       <h3>Deliverable</h3>
       <p>
-        Zipped Xcode project directory or a link to github repo that contains the Xcode project. It should be an iOS project. The final project should not just contain your new API based on **Fancy Filter**, it should also provide an executable (XCTest, app, etc) that can be used to verify the correctness of the implementation.
+        Zipped Xcode project directory or a link to github repo that contains the Xcode project. It should be an iOS project. The final project should not just contain your new API, it should also provide an executable (XCTest, app, etc) that can be used to verify the correctness of the implementation.
       </p>
 
       <h3>Rules</h3>
       <ul>
         <li>You can use any available resource you can find on the Internet — eg, Stack Overflow, API docs, etc.</li>
-        <li>You may not ask questions related to the problem on Stack Overflow, IRC, etc. (eg, the Internet is “read-only”)</li>
+        <li>You may not ask questions related to the problem on Stack Overflow, IRC, etc. (eg, the Internet is "read-only")</li>
         <li>You cannot use any 3rd party libraries or products, you can only use classes and API’s in the standard iOS/Cocoa/Objective-C runtime. If in doubt, just ask.</li>
       </ul>
 

@@ -1,11 +1,11 @@
 # fancyfilter
 
-Dependency-free header and static library implementing the hypothetical **Fancy Filter**. It is small part of the (hopefully) fun coding challenge described [here](http://iansachs.github.io/fancyfilter).
+Dependency-free header and iphoneos/iphonesimulator FAT static library implementing the hypothetical **Fancy Filter**. It is small part of the (hopefully) fun coding challenge described [here](http://iansachs.github.io/fancyfilter).
 
 About
 -----
 
-The **Fancy Filter** is a simple C++ filter. It uses some C++11 features, but has no external dependencies. It is based on [SLIC Superpixels](http://www.kev-smith.com/papers/SLIC_Superpixels.pdf) which clusters the image (RGBXY) features into `numCells` clusters, with larger values of `numCells`. An example can be seen here:
+The **Fancy Filter** is a simple C++ filter. It uses some C++11 features, but has no external dependencies. It is based on [SLIC Superpixels](http://www.kev-smith.com/papers/SLIC_Superpixels.pdf) which clusters the image (RGBXY) features into `numCells` clusters. An example can be seen here:
 
 | ![Input](/docs/images/input-000.jpg?raw=true "Input") | ![1024 cells](/docs/images/result.png?raw=true "1024 Cells") |
 |:-----------------------------------------------------:|:------------------------------------------------------------:|
@@ -75,5 +75,7 @@ Notes
 -----
 
 * Data in `fancyfilter::MatBase` and its derivatives is stored in [row-major](https://en.wikipedia.org/wiki/Row-major_order) order.
+* In this case, you can't make any assumptions about the error checking performed by the provided library
+* The provided binary has been compiled in "Release" mode (i.e. without debug symbols and with -O3 optimization)
 
 
