@@ -8,8 +8,13 @@ About
 The **Fancy Filter** is a simple C++ filter. It uses some C++11 features, but has no external dependencies. It is based on [SLIC Superpixels](http://www.kev-smith.com/papers/SLIC_Superpixels.pdf) which clusters the image (RGBXY) features into `numCells` clusters, with larger values of `numCells`. An example can be seen here:
 
 | ![Input](/docs/images/input-000.jpg?raw=true "Input") | ![1024 cells](/docs/images/result.png?raw=true "1024 Cells") |
-|:--------------:|:--------------:|
-| Input          |  1024 Cells    |
+|:-----------------------------------------------------:|:------------------------------------------------------------:|
+| Input                                                 |  1024 Cells                                                  |
+
+
+#### Documentation
+
+Online API documentation can be found [here](https://iansachs.github.io/fancyfilter/doxygen/html/index.html). These pages are automatically generated from the `fancyfilter/fancyfilter.hpp` header file using [Doxygen](http://www.stack.nl/~dimitri/doxygen/).
 
 Contents
 --------
@@ -30,6 +35,17 @@ Contents
         └── libff.a                   # Fancy filter static lib (arm64, armv7, armv7s, i386, x86_64)
 
 
+Build Options
+-------------
+
+To build against **Fancy Filter** you should just need to ensure that:
+
+* `/path/to/fancyfilter/include` is in your **Build Setting -> Header Search Paths**
+* `/path/to/fancyfilter/lib` is in your **Build Setting -> Library Search Paths**
+* `libff.a` is in your **Build Phases->Link Binary With Libraries** list
+* **Build Settings->Enable Bitcode** is Yes
+
+
 Usage Example
 -------------
 
@@ -39,7 +55,7 @@ Usage Example
 
 // Convert from some existing image format to the Image3u type expected
 // by the filter call
-fancyfilter::Image3u input = ... // Create Image3u here
+fancyfilter::Image3u input = ... // Create Image3u from input image here
 fancyfilter::Image3u output;     // Placeholder for output
 
 // Call the API
@@ -55,5 +71,9 @@ return output;
 ```
 
 
+Notes
+-----
+
+* Data in `fancyfilter::MatBase` and its derivatives is stored in [row-major](https://en.wikipedia.org/wiki/Row-major_order) order.
 
 

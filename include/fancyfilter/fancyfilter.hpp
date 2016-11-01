@@ -17,7 +17,7 @@ namespace fancyfilter {
 namespace detail {
 
 /**
- * Base class for matrices and images. Storage is column-major.
+ * Base class for matrices and images. Storage is row-major.
  */
 template <typename T, typename DerivedT>
 class MatBase {
@@ -90,7 +90,7 @@ public:
 
     /**
      * Return an iterator pointing to the first element of the matrix.
-     * Incrementing the iterator traverses the matrix values in column-major
+     * Incrementing the iterator traverses the matrix values in row-major
      * order.
      */
     iterator begin() { return data_.begin(); }
@@ -114,7 +114,7 @@ protected:
     DerivedT& derived() { return static_cast<DerivedT&>(*this); }
     const DerivedT& derived() const { return static_cast<DerivedT&>(*this); }
 
-    storage_type data_;  //!< matrix element values (column-major order)
+    storage_type data_;  //!< matrix element values (row-major order)
     int dims_[2];        //!< matrix dimensions
     int stride_[2];      //!< strides for converting 2D index to 1D idnex into data_
 
