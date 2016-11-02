@@ -5,7 +5,7 @@ Dependency-free header and iphoneos/iphonesimulator FAT static library implement
 About
 -----
 
-The **Fancy Filter** is a simple C++ filter. It uses some C++11 features, but has no external dependencies. It is based on [SLIC Superpixels](http://www.kev-smith.com/papers/SLIC_Superpixels.pdf) which clusters the image (RGBXY) features into `numCells` clusters. An example can be seen here:
+The **Fancy Filter** is a simple C++ filter. It uses some C++11 features, but has no external dependencies. It is based on [SLIC Superpixels](http://www.kev-smith.com/papers/SLIC_Superpixels.pdf) which clusters the image (RGBXY) features using a variant of [k-means](https://en.wikipedia.org/wiki/K-means_clustering). An example can be seen here:
 
 | ![Input](/docs/images/input-000.jpg?raw=true "Input") | ![1024 cells](/docs/images/result.png?raw=true "1024 Cells") |
 |:-----------------------------------------------------:|:------------------------------------------------------------:|

@@ -15,9 +15,6 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!-- <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
- -->
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
  
@@ -57,8 +54,8 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>iOS Coding Challenge: Fancy Filter</h1>
-        <p class="lead">Build a clean Objective C API for the <a href="https://github.com/iansachs/fancyfilter">Fancy Filter</a> C++ library.</p>
+        <h1>iOS Coding Exercise: Fancy Filter</h1>
+        <p class="lead">Build a simple app using the <a href="https://github.com/iansachs/fancyfilter">Fancy Filter</a> C++ library.</p>
       </div>
 
       <div class="row">
@@ -66,42 +63,34 @@
         <div class="col-md-6"><img src="images/result.png" class="img-responsive"></img></div>
       </div>
 
-      <h3>Motivation</h3>
+      <h3>Goal</h3>
       <p>
-        It is very common for high-performance image processing code to be written in C/C++. Including these C/C++ APIs in iOS apps is not always straightforward, so it is not uncommon to to take these C++ libraries and provide Objective C wrapper APIs that can be called from iOS apps.
-      </p>
-
-      <h3>Challenge</h3>
-
-      <p>
-        The goal is to provide a clean, iOS-style API for the <a href="https://github.com/iansachs/fancyfilter">Fancy Filter</a> C++ library that makes the filter as intuitive as possible for iOS developers who may not be familiar with C/C++ to incorporate. It will be up to you to decide things like:
+        The goal is write a simple iOS app that allows the user to capture a photo (or select one from the camera roll), and process it with the <a href="https://github.com/iansachs/fancyfilter">Fancy Filter</a> C++ library. Consideration should be given to the interface between the iOS and C++ layers with an eye toward a clean wrapper for the Fancy Filter library. It will be up to you to decide things like:
         <ul>
-          <li>What the API should look like</li>
-          <li>How to test your API (XCTest, test app, etc)</li>
-          <li>How you would distribute the result (static library, framework, source code, etc)</li>
+          <li>The best way to expose the C++ functionality to the app</li>
+          <li>How to convert a <code>UIImage</code> to a raw pixel buffer and back</li>
           <li>How you want to include the contents of the <a href="https://github.com/iansachs/fancyfilter">Fancy Filter</a> repo (submodule, build-time download, etc)</li>
         </ul>
-        This challenge is less about your ability to write extremely complex iOS code, and more about API design, iOS best practices, and your ability to work, at least superficially, with C/C++ code.
+        This exercise is less about the ability to write extremely complex iOS code, and more about API design, iOS best practices, and the ability to work, at least superficially, with C/C++ code.
       </p>
 
       <h3>Getting Started</h3>
       <ul>
         <li>Take a look at the <a href="https://github.com/iansachs/fancyfilter">Fancy Filter</a> repo</li>
-        <li>Clone or download the <a href="https://github.com/iansachs/fancyfilter/releases/latest">latest Fancy Filter release</a>. The important files are: <code>README.md</code>, <code>fancyfilter.hpp</code> header file, and a FAT static library called <code>libff.a</code> which provides symbols for both the iphoneos and iphonesimulator platforms.</li>
+        <li>Clone or download the <a href="https://github.com/iansachs/fancyfilter/releases/latest">latest Fancy Filter release</a>. The important files are: <code>README.md</code>, <code>fancyfilter.hpp</code>, and a FAT static library called <code>libff.a</code> which provides symbols for both the iphoneos and iphonesimulator platforms.</li>
         <li><code>README.md</code> should provide all of the necessary information for getting a new Xcode project building with the library.</li>
       </ul>
 
-
       <h3>Deliverable</h3>
       <p>
-        Zipped Xcode project directory or a link to github repo that contains the Xcode project. It should be an iOS project. The final project should not just contain your new API, it should also provide an executable (XCTest, app, etc) that can be used to verify the correctness of the implementation.
+        Zipped Xcode project directory or a link to github repo that contains the Xcode project.
       </p>
 
       <h3>Rules</h3>
       <ul>
         <li>You can use any available resource you can find on the Internet — eg, Stack Overflow, API docs, etc.</li>
         <li>You may not ask questions related to the problem on Stack Overflow, IRC, etc. (eg, the Internet is "read-only")</li>
-        <li>You cannot use any 3rd party libraries or products, you can only use classes and API’s in the standard iOS/Cocoa/Objective-C runtime. If in doubt, just ask.</li>
+        <li>You cannot use any 3rd party libraries or products, you can only use classes and API’s in the standard iOS/Objective-C runtime. If in doubt, just ask.</li>
       </ul>
 
       <h3>Contact</h3>
