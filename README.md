@@ -24,15 +24,28 @@ Contents
     ├── docs
     │   ├── doxygen
     │   ├── images
-    │   │   ├── input-000.jpg         # Example input image
-    │   │   └── result.png            # Example result
-    │   ├── index.html                # Github pages writeup
-    │   └── starter-template.css      # Github pages writeup CSS
+    │   │   ├── input-000.jpg             # Example input image
+    │   │   └── result.png                # Example result image
+    │   ├── index.html                    # Github pages writeup
+    │   └── starter-template.css          # Github pages writeup CSS
+    ├── fancyfilter-app                   # Fancy filter starter app
+    │   ├── fancyfilter-app
+    │   │   ├── AppDelegate.h
+    │   │   ├── AppDelegate.m
+    │   │   ├── Assets.xcassets
+    │   │   ├── Base.lproj
+    │   │   ├── Info.plist
+    │   │   ├── UIImage+Image3u.h         # Helper category for UIImage <-> Image3u conversion
+    │   │   ├── UIImage+Image3u.mm        # Helper category for UIImage <-> Image3u conversion
+    │   │   ├── ViewController.h
+    │   │   ├── ViewController.m
+    │   │   └── main.m
+    │   └── fancyfilter-app.xcodeproj     # fancyfilter starter app Xcode project
     ├── include
     │   └── fancyfilter
-    │       └── fancyfilter.hpp       # Fancy filter header
+    │       └── fancyfilter.hpp           # Fancy filter header
     └── lib
-        └── libff.a                   # Fancy filter static lib (arm64, armv7, armv7s, i386, x86_64)
+        └── libff.a                       # Fancy filter static lib (arm64, armv7, armv7s, i386, x86_64)
 
 
 Build Options
@@ -46,8 +59,8 @@ To build against **Fancy Filter** you should just need to ensure that:
 * **Build Settings->Enable Bitcode** is Yes
 
 
-Usage Example
--------------
+C++ Usage Example
+-----------------
 
 ```c++
 // Include the header file
