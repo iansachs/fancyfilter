@@ -9,7 +9,7 @@
 @interface UIImage (Image3u)
 
 /**
- Initialize a new UIImage with raw uint8 buffers
+ Initialize a new UIImage with an Image3u
  
  @param imageIn fancyfilter::Image3u to convert to a UIImage
 

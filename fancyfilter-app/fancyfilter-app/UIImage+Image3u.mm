@@ -6,6 +6,66 @@
 
 #include <memory>
 
+void reorientTransformAndBounds(CGAffineTransform *transformRef, size_t *widthRef, size_t *heightRef, UIImageOrientation orientation) {
+
+    CGAffineTransform transform = *transformRef;
+    CGFloat width = *widthRef;
+    CGFloat height = *heightRef;
+    
+    switch (orientation) {
+        case UIImageOrientationDown:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, width, height);
+            transform = CGAffineTransformRotate(transform, M_PI);
+            break;
+            
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+            transform = CGAffineTransformTranslate(transform, height, 0);
+            transform = CGAffineTransformRotate(transform, M_PI_2);
+            break;
+        
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, 0, width);
+            transform = CGAffineTransformRotate(transform, -M_PI_2);
+            break;
+        case UIImageOrientationUp:
+        case UIImageOrientationUpMirrored:
+            break;
+    }
+    
+    switch (orientation) {
+        case UIImageOrientationUpMirrored:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, height, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+            
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, width, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+        case UIImageOrientationUp:
+        case UIImageOrientationDown:
+        case UIImageOrientationLeft:
+        case UIImageOrientationRight:
+            break;
+    }
+    
+    // Update the transform
+    *transformRef = transform;
+    
+    // If necessary, swap the width and height which will be used for creating the context
+    if (orientation == UIImageOrientationLeft || orientation == UIImageOrientationLeftMirrored ||
+        orientation == UIImageOrientationRight || orientation == UIImageOrientationRightMirrored) {
+        *widthRef = height;
+        *heightRef = width;
+    }
+}
+
+
 @implementation UIImage (Image3u)
 
 - (id)initWithImage3u:(const fancyfilter::Image3u&)imageIn
@@ -47,7 +107,7 @@
     
     
     // Getting UIImage from CGImage
-    self = [UIImage imageWithCGImage:imageRef];
+    self = [UIImage imageWithCGImage:imageRef scale:1.0f orientation:UIImageOrientationUp];
     CGImageRelease(imageRef);
     CGDataProviderRelease(provider);
     CGColorSpaceRelease(colorSpace);
@@ -71,7 +131,11 @@
     std::unique_ptr<unsigned char[]> buf(new unsigned char[n]);
     std::fill(buf.get(), buf.get() + n, 0);
     
-    // Render this image into the cv::Mat data
+    // Render this image into the Image3u data
+    CGRect origRect = CGRectMake(0, 0, width, height); // Save the orig rect, since it will be transformed
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    reorientTransformAndBounds(&transform, &width, &height, self.imageOrientation);
+    
     CGContextRef ctx = CGBitmapContextCreate(buf.get(),
                                              width,
                                              height,
@@ -79,7 +143,9 @@
                                              width * depth * sizeof(uint8_t),
                                              CGImageGetColorSpace(cgImage),
                                              CGImageGetBitmapInfo(cgImage));
-    CGContextDrawImage(ctx, CGRectMake(0, 0, width, height), cgImage);
+
+    CGContextConcatCTM(ctx, transform);
+    CGContextDrawImage(ctx, origRect, cgImage);
     CGContextRelease(ctx);
 
     fancyfilter::Image3u imageOut(static_cast<int>(width), static_cast<int>(height));
