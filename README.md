@@ -48,19 +48,13 @@ Contents
         └── libff.a                       # Fancy filter static lib (arm64, armv7, armv7s, i386, x86_64)
 
 
-Build Options
--------------
+Fancy Filter Library
+--------------------
 
-To build against **Fancy Filter** you should just need to ensure that:
+The Fancy Filter library is written in C++. It defines a custom [Image3u](https://iansachs.github.io/fancyfilter/doxygen/html/classfancyfilter_1_1_image.html) image class, as well an [applyFilter](https://iansachs.github.io/fancyfilter/doxygen/html/namespacefancyfilter.html#aec6ef14ffb390cc64820a81dad1073e2) function
+which takes an input `Image3u` and generates an output `Image3u`. It also requires a `numCells` which determines how many clusters the filter should generate, as well as a progress callback, which allws `applyFilter` to report progress.
 
-* `/path/to/fancyfilter/include` is in your **Build Setting -> Header Search Paths**
-* `/path/to/fancyfilter/lib` is in your **Build Setting -> Library Search Paths**
-* `libff.a` is in your **Build Phases->Link Binary With Libraries** list
-* **Build Settings->Enable Bitcode** is Yes
-
-
-C++ Usage Example
------------------
+#### C++ Usage Example
 
 ```c++
 // Include the header file
@@ -82,6 +76,24 @@ fancyfilter::applyFilter(input, output, 128, [&](float progress){
 // Do something with the result. e.g.)
 return output; 
 ```
+
+
+Starter Project
+---------------
+
+The `fancyfilter-app` directory provides a simple Xcode project to start from. It should build a Single View Application which presents a `UIImageView` a long with a "Choose Image" button. Pressing the button launches a `UIImagePickerController` which allows you to select images from you camera roll. Upon selection, the displayed image is shown in the `UIImageView`.
+
+The Xcode project also includes a `UIImage+Image3u` helper category for converting from a `UIImage` to an `Image3u` and back.
+
+#### Build Settings
+
+The important build settings are already set in the project. They look like this:
+
+* `/path/to/fancyfilter/include` is in your **Build Setting -> Header Search Paths**
+* `/path/to/fancyfilter/lib` is in your **Build Setting -> Library Search Paths**
+* `libff.a` is in your **Build Phases->Link Binary With Libraries** list
+* **Build Settings->Enable Bitcode** is Yes
+
 
 
 Notes
