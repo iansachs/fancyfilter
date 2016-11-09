@@ -52,7 +52,7 @@ Fancy Filter Library
 --------------------
 
 The Fancy Filter library is written in C++. It defines a custom [Image3u](https://iansachs.github.io/fancyfilter/doxygen/html/classfancyfilter_1_1_image.html) image class, as well an [applyFilter](https://iansachs.github.io/fancyfilter/doxygen/html/namespacefancyfilter.html#aec6ef14ffb390cc64820a81dad1073e2) function
-which takes an input `Image3u` and generates an output `Image3u`. It also requires a `numCells` which determines how many clusters the filter should generate, as well as a progress callback, which allws `applyFilter` to report progress.
+which takes an input `Image3u` and generates an output `Image3u`. It also requires a `numCells` which determines how many clusters the filter should generate, as well as a progress callback, which allows `applyFilter` to report progress.
 
 #### C++ Usage Example
 
