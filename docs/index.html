@@ -67,7 +67,7 @@
       <p>
         The goal is write a simple iOS app that allows the user to select a photo from the camera roll (or take a picture), and process it with the <a href="https://github.com/iansachs/fancyfilter">Fancy Filter</a> C++ library. Consideration should be given to:
         <ul>
-          <li>The interface between the iOS and C++ layers with an eye toward writing a clean wrapper for the Fancy Filter library</li>
+          <li>The interface between the iOS and C++ layers with an eye toward writing a clean and efficient wrapper for the Fancy Filter library</li>
           <li>The design and user interaction.</li>
         </ul>
       </p>
@@ -81,7 +81,7 @@
         <li>Clone or download the <a href="https://github.com/iansachs/fancyfilter/releases/latest">latest Fancy Filter release</a>. The important components are: 
         <ul>
           <li><code>README.md</code></li>
-          <li><code>fancyfilter.hpp</code>: C++ API definition for the </li>
+          <li><code>fancyfilter.hpp</code>: C++ API definitions (<code>fancyfilter::applyFilter</code> in particular)</li>
           <li><code>libff.a</code>: FAT static library built for both the iphoneos and iphonesimulator platforms</li>
           <li><code>fancyfilter-app/fancyfilter-app.xcodeproj</code>: (optional) Starter Xcode project</li>
           <li><code>fancyfilter-app/UIImage+Image3u.h/UIImage+Image3u.mm</code>: (optional) <code>UIImage</code> category to simplify translating to/from <code>Image3u</code></li>
@@ -91,7 +91,7 @@
 
       <h3>Deliverable</h3>
       <p>
-        Zipped Xcode project directory or a link to github repo that contains the Xcode project.
+        Zipped Xcode project directory <a href="https://www.dropbox.com/request/SWxsb8voKdNJ7JEE3JCx">uploaded here</a>
       </p>
 
       <h3>Rules</h3>

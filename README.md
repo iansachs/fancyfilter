@@ -65,8 +65,11 @@ which takes an input `Image3u` and generates an output `Image3u`. It also requir
 fancyfilter::Image3u input = ... // Create Image3u from input image here
 fancyfilter::Image3u output;     // Placeholder for output
 
+// Set the number of cells to use for the filter (controls the "resolution")
+int numCells = 128;
+
 // Call the API
-fancyfilter::applyFilter(input, output, 128, [&](float progress){
+fancyfilter::applyFilter(input, output, numCells, [&](float progress){
     // This is a C++ lambda which is called by applyFilter to communicate 
     // progress in the range [0, 1]. Respond to progress callbacks here.
     // e.g.) 
